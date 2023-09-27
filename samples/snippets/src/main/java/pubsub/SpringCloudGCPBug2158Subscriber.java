@@ -24,7 +24,7 @@ public class SpringCloudGCPBug2158Subscriber {
 
   public static void main(String... args) throws Exception {
     // TODO(developer): Set the GOOGLE_APPLICATION_CREDENTIALS to point to the service account key
-    //export GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account-key.json
+    //export GOOGLE_APPLICATION_CREDENTIALS=/path/to/subscriber-service-account-key.json
 
     // TODO(developer): Replace these variables before running the sample.
     final String projectId = "your-project-id";
@@ -35,11 +35,11 @@ public class SpringCloudGCPBug2158Subscriber {
 
     createTopic(projectId, topicId);
     if (withOrderingEnabled) {
-      final String subscriptionIdWithOrdering = "mpatel-test-topic1-sub-ordered";
+      final String subscriptionIdWithOrdering = "your-subscription-id-with-ordering";
       createSubscription(projectId, topicId, subscriptionIdWithOrdering, true);
       subscribeAsync(projectId, subscriptionIdWithOrdering);
     } else {
-      String subscriptionIdNoOrdering = "mpatel-test-topic1-no-ordering";
+      String subscriptionIdNoOrdering = "your-subscription-id-no-ordering";
       createSubscription(projectId, topicId, subscriptionIdNoOrdering, false);
       subscribeAsync(projectId, subscriptionIdNoOrdering);
     }

@@ -39,9 +39,14 @@ import java.util.concurrent.TimeUnit;
 public class SpringCloudGCPBug2158Publisher {
 
   public static void main(String... args) throws Exception {
+    // TODO(developer): Set the GOOGLE_APPLICATION_CREDENTIALS to point to the service account key
+    //Note: service account key is different from the subscriber's service account key
+    //You could also use ADC instead of service account key for publisher
+    //export GOOGLE_APPLICATION_CREDENTIALS=/path/to/publisher-service-account-key.json
+
     // TODO(developer): Replace these variables before running the sample.
-    final String projectId = "capable-stream-180018";
-    final String topicId = "mpatel-test-topic1";
+    final String projectId = "your-project-id";
+    final String topicId = "your-topic-id";
 
     createTopic(projectId, topicId);
     publishWithOrderingKeysExample(projectId, topicId);
